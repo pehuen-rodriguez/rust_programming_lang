@@ -8,4 +8,7 @@ fn main() {
     let shadow = 5;
     let shadow = shadow + 10;
     println!("Te value of the sadowed thing is: {}", shadow);
+    let spaces = "   ";
+    let spaces = spaces.len();
+    println!("Number of spaces changed the value type: {}", spaces);
 }
