@@ -5,4 +5,9 @@ fn main() {
 
 fn another_function(x: i32, y: i32) {
     println!("Another function with {}", x * y);
+    println!("Five function with a sigle expression returns: {}", five());
+}
+
+fn five() -> i32 {
+    5
 }
