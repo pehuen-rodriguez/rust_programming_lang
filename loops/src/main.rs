@@ -17,4 +17,8 @@ fn main() {
     for element in silly_array.iter() {
         println!("Val was with for: {}", element);
     }
+
+    for count in (1..4).rev() {
+        println!("Count in reverse: {}", count);
+    }
 }
