@@ -13,4 +13,8 @@ fn main() {
         println!("Val in array was {}", silly_array[index]);
         index += 1;
     }
+
+    for element in silly_array.iter() {
+        println!("Val was with for: {}", element);
+    }
 }
