@@ -4,12 +4,12 @@ struct Rectangle {
 }
 
 fn main() {
-    let rect = Rectangle{width: 100, height: 150};
+    let rect = Rectangle {
+        width: 100,
+        height: 150,
+    };
 
-    println!(
-        "The area of the rectangle equals {}",
-        calculate_area(&rect)
-    );
+    println!("The area of the rectangle equals {}", calculate_area(&rect));
 }
 
 fn calculate_area(rectangle: &Rectangle) -> u32 {
