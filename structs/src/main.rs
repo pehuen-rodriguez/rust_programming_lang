@@ -19,8 +19,14 @@ fn main() {
     user2.sign_in_count = user1.sign_in_count;
 
     let user3 = build_struct(String::from("coroto"), String::from("coroto@gmail.com"));
-
     println!("User3 build with username: {}", user3.username);
+
+    let user4 = User {
+        username: String::from("adrian"),
+        email: String::from("adrian@gmail.com"),
+        ..user3
+    };
+    println!("User4 build with struct update sintax: {}", user4.username);
 }
 
 fn build_struct(username: String, email: String) -> User {
