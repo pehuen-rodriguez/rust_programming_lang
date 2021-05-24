@@ -45,7 +45,6 @@ fn main() {
     let mut can_be_muted = String::from("I'll be muted");
     mutates_a_reference(&mut can_be_muted);
     println!("And s was mutated: {}", can_be_muted);
-    
     let like_this = &mut can_be_muted;
     // second mutable borrows forbidden
     // to prevent data races
@@ -53,15 +52,12 @@ fn main() {
     mutates_a_reference(like_this);
     println!("And was also mutated: {}", like_this);
     // mutates_a_reference(but_not_like_this);
-    
     let unmutable_reference = &can_be_muted;
     // cant be borrowed as mutable after inmutable
     // inmutable couldn't expect its value to change
     // let mutable_reference = &mut can_be_muted;
     // println!("And was also mutated: {}", mutable_reference);
-    
     // let cant_make_dangling_ref = dangle();
-    
     let position_of_word = first_word(unmutable_reference);
     println!("Position of words: {}", position_of_word);
     // cant be cleared because its needs to be borrowed
@@ -74,6 +70,10 @@ fn main() {
     let _word = first_word_again(&another_string_literal[..]);
     let word = first_word_again(another_string_literal);
     println!("Position of words: {}", word);
+    
+    let a = [1, 2, 3, 4, 5, 6];
+    let array_slice = &a[..3];
+    println!("Size of slice: {}", array_slice.len());
 }
 
 // cant return dangling reference
