@@ -25,8 +25,8 @@ fn main() {
 
 fn build_struct(username: String, email: String) -> User {
     User {
-        username: username,
-        email: email,
+        username,
+        email,
         active: true,
         sign_in_count: 1,
     }
