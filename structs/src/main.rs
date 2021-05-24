@@ -27,6 +27,8 @@ fn main() {
         ..user3
     };
     println!("User4 build with struct update sintax: {}", user4.username);
+    let center = Point(0, 0, 0);
+    println!("Built center point with x: {}", center.0);
 }
 
 fn build_struct(username: String, email: String) -> User {
@@ -37,6 +39,8 @@ fn build_struct(username: String, email: String) -> User {
         sign_in_count: 1,
     }
 }
+
+struct Point(i32, i32, i32);
 
 struct User {
     username: String,
