@@ -67,6 +67,13 @@ fn main() {
     // cant be cleared because its needs to be borrowed
     // as mutable
     // unmutable_reference.clear();
+
+    let another_string = String::from("One more string");
+    let _word = first_word_again(&another_string[..]);
+    let another_string_literal = "Yet another string";
+    let _word = first_word_again(&another_string_literal[..]);
+    let word = first_word_again(another_string_literal);
+    println!("Position of words: {}", word);
 }
 
 // cant return dangling reference
@@ -76,6 +83,15 @@ fn main() {
 //     let will_drop = String::from("No");
 //     &will_drop
 // }
+fn first_word_again(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
 
 fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
