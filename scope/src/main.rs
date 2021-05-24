@@ -54,13 +54,16 @@ fn main() {
     println!("And was also mutated: {}", like_this);
     // mutates_a_reference(but_not_like_this);
     
-    let _unmutable_reference = &can_be_muted;
+    let unmutable_reference = &can_be_muted;
     // cant be borrowed as mutable after inmutable
     // inmutable couldn't expect its value to change
     // let mutable_reference = &mut can_be_muted;
     // println!("And was also mutated: {}", mutable_reference);
-
+    
     // let cant_make_dangling_ref = dangle();
+    
+    let position_of_word = first_word(unmutable_reference);
+    println!("Position of words: {}", position_of_word);
 }
 
 // cant return dangling reference
@@ -70,6 +73,16 @@ fn main() {
 //     let will_drop = String::from("No");
 //     &will_drop
 // }
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+    s.len()
+}
 
 fn gives_ownsership() -> String {
     println!("I'm only giving the string back");
