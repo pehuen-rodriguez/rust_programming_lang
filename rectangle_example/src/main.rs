@@ -8,6 +8,6 @@ fn main() {
     );
 }
 
-fn calculate_area(width: i32, height: i32) -> i32 {
+fn calculate_area(width: u32, height: u32) -> u32 {
     width * height
 }
