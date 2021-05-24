@@ -12,6 +12,12 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
+impl Message {
+    fn print_me(&self) {
+        println!("Gotta message: {:#?}", &self);
+    }
+}
+
 fn main() {
     let home = IpAddr::V4(127, 0, 0, 1);
     let loopback = IpAddr::V6(String::from("::1"));
@@ -19,11 +25,18 @@ fn main() {
     println!("Some loopback address {:#?}", loopback);
 
     let new_message = Message::Move { x: 12, y: 50 };
-    println!("Gotta message: {:#?}", new_message);
+    new_message.print_me();
     let new_message = Message::Write(String::from("Menssage"));
-    println!("Gotta message: {:#?}", new_message);
+    new_message.print_me();
     let new_message = Message::ChangeColor(12, 255, 255);
-    println!("Gotta message: {:#?}", new_message);
+    new_message.print_me();
     let new_message = Message::Quit;
-    println!("Gotta message: {:#?}", new_message);
+    new_message.print_me();
+
+    let five = Some(5);
+    println!("five? {:?}", five);
+    let a_string = Some("string");
+    println!("a_string? {:?}", a_string);
+    let absent_number: Option<i32> = None;
+    println!("a_string? {:?}", absent_number);
 }
