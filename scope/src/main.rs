@@ -64,6 +64,9 @@ fn main() {
     
     let position_of_word = first_word(unmutable_reference);
     println!("Position of words: {}", position_of_word);
+    // cant be cleared because its needs to be borrowed
+    // as mutable
+    // unmutable_reference.clear();
 }
 
 // cant return dangling reference
@@ -74,14 +77,14 @@ fn main() {
 //     &will_drop
 // }
 
-fn first_word(s: &String) -> usize {
+fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return i;
+            return &s[0..i];
         }
     }
-    s.len()
+    &s[..]
 }
 
 fn gives_ownsership() -> String {
