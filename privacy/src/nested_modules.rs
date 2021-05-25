@@ -14,6 +14,7 @@ fn main() {
     nested_modules();
     let green = TrafficLights::Green;
     let green = Green;
+    let cat = Cat;
 }
 
 enum TrafficLights {
@@ -22,4 +23,11 @@ enum TrafficLights {
     Red,
 }
 
+enum Pets {
+    Cat,
+    Dog,
+    Fish,
+}
+
 use TrafficLights::{Red, Green, Yellow};
+use Pets::*;
