@@ -38,6 +38,11 @@ fn main() {
         5 => println!("five!"),
         _ => (),
     }
+
+    let some_u8_value: Option<u8> = Some(3);
+    if let Some(3) = some_u8_value {
+        println!("Yes it was three");
+    }
 }
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
