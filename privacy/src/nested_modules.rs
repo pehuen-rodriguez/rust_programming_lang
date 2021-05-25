@@ -12,4 +12,14 @@ use a::series::of::nested_modules;
 
 fn main() {
     nested_modules();
+    let green = TrafficLights::Green;
+    let green = Green;
 }
+
+enum TrafficLights {
+    Green,
+    Yellow,
+    Red,
+}
+
+use TrafficLights::{Red, Green, Yellow};
