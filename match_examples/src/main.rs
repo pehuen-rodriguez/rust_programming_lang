@@ -31,6 +31,13 @@ fn main() {
 
     println!("Summed one {:?}", six);
     println!("Summed nottin {:?}", none);
+
+    let some_u8_value: u8 = 0u8;
+    match some_u8_value {
+        1 => println!("one!"),
+        5 => println!("five!"),
+        _ => (),
+    }
 }
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
