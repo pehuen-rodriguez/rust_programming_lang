@@ -22,7 +22,6 @@ fn main() {
     ];
 
     println!("{:?}", row);
-    
     let mut s = String::new();
     s.push_str("quiqu");
     let data = "initial contents";
@@ -42,6 +41,22 @@ fn main() {
 
     let tic_tac_toe = format!("{}-{}-{}", &s1, &s2, &s3);
     println!("{}", tic_tac_toe);
+    
+    let len = String::from("Здравствуйте").len();
+    println!("{}", len);
+
+    let chineese = String::from("杜鹃蜂蜜和土豆");
+    // panics cause first byte is inside a 3 byte thing
+    // this one: 杜
+    // let s = &chineese[0..1];
+    // println!("{}", s);
+    let s = &chineese[0..3];
+    println!("{}", s);
+
+    // for c in chineese.chars() {
+    for c in chineese.bytes() {
+        println!("{}", c);
+    }
 }
 
 // holding different types via enum
