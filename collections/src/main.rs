@@ -41,7 +41,6 @@ fn main() {
 
     let tic_tac_toe = format!("{}-{}-{}", &s1, &s2, &s3);
     println!("{}", tic_tac_toe);
-    
     let len = String::from("Здравствуйте").len();
     println!("{}", len);
 
@@ -52,12 +51,30 @@ fn main() {
     // println!("{}", s);
     let s = &chineese[0..3];
     println!("{}", s);
-
     // for c in chineese.chars() {
     for c in chineese.bytes() {
         println!("{}", c);
     }
+
+    let mut map = HashMap::new();
+    map.insert(String::from("blue"), 10);
+
+    map.entry(String::from("cecil")).or_insert(10);
+    println!("{:?}", map);
+    let heroes = vec![String::from("coco"), String::from("cuco")];
+    let power = vec![125, 167];
+    let scores: HashMap<&String, &i32> = heroes.iter().zip(power.iter()).collect();
+
+    println!("{:?}", scores);
+
+    println!("Coco's score {:?}", scores.get(&String::from("coco")));
+
+    for (key, value) in &scores {
+        println!("{} is worth: {}", key, value);
+    }
 }
+
+use std::collections::HashMap;
 
 // holding different types via enum
 #[derive(Debug)]
